@@ -14,32 +14,6 @@ def reverse(number):
     print(result)
     return int(result)
 
-
-# Palindrome Number
-# Determine whether an integer is a palindrome. 
-# An integer is a palindrome when it reads the 
-# same backward as forward.
-
-def palindrome(num):
-    left = 0
-    right = range(int(num)) - 1
-
-    while right > left:
-        if (num[right] != num[left]):
-            print("incorrect input")
-            return False
-        left += 1
-        right -= 1
-    return True
-
-    if left is None:
-        left = 0
-    if right is None:
-        right = len(num) - 1
-    
-    return palindrome(num, "Is a Palindrome")
-
-
 """
 Variable table:
 
@@ -56,9 +30,36 @@ Variable table:
 
 """
 
+# Palindrome Number
+# Determine whether an integer is a palindrome. 
+# An integer is a palindrome when it reads the 
+# same backward as forward.
+
+def palindrome(num):
+    num = str(num)
+    if (num == num[:: - 1]):
+        print("{} is a palidrome".format(num))
+    else:
+        print("{} not a palindrome".format(num))
+
+"""
+Variable table:
+
+----------------------------------------------------------
+|      Variable          |           Value               |
+----------------------------------------------------------
+|       num              |      [33, 56, 25, 30303]      |
+----------------------------------------------------------
+
+"""
+
+
 reverse(34)
 reverse(5784)
 reverse(286)
 reverse(3479)
 
 palindrome(33)
+palindrome(56)
+palindrome(25)
+palindrome(30303)
