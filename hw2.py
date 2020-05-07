@@ -19,10 +19,55 @@ def locate_duplicates(arr):
             print(element, end=" ")
     print("\n")
 
+# ----------------------------------------------------------
+# ----------------------------------------------------------
+# COMMUNICATION STEPS:
+
+# I create an empty dictionary to store any range of numbers
+# I make two loops to check for the ammount of times a number
+# appears in the dictionary and if it appears more than once,
+# it is therefore a duplicate and is printed
+
+# ----------------------------------------------------------
+# ----------------------------------------------------------
+
 
 # Coding Syntax Problem 2
-# Find the middle item in a singly linked list, 
-# or two middle items if it contains an even number of nodes.
+# You are given two non-empty linked lists representing 
+# two non-negative integers. The digits are stored in 
+# reverse order and each of their nodes contain a single digit. 
+# Add the two numbers and return it as a linked list.
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class ListNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+# class Solution(object):
+class Solution:
+    def addTwoNumbers(self, l1, l2 ,c = 0):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        val = l1.val + l2.val + c
+        c = val // 10
+        ret = ListNode(val % 10 ) 
+        
+        if (l1.next != None or l2.next != None or c != 0):
+            if l1.next == None:
+                l1.next = ListNode(0)
+            if l2.next == None:
+                l2.next = ListNode(0)
+            ret.next = self.addTwoNumbers(l1.next,l2.next,c)
+            print(ret)
+        return ret
 
 
 
@@ -32,3 +77,6 @@ if __name__ == "__main__":
         53, 71, 55, 96, 49, 45, 94, 77, 16, 10, 3, 31, 75, 78, 
         26, 71, 55, 31, 97]
     locate_duplicates(random_list)
+
+    sol = Solution()
+    sol.addTwoNumbers(ListNode(5), ListNode(6))
