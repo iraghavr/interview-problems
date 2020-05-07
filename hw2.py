@@ -50,7 +50,7 @@ class ListNode(object):
 
 # class Solution(object):
 class Solution:
-    def addTwoNumbers(self, l1, l2 ,c = 0):
+    def addTwoNumbers(self, l1, l2, c = 0):
         """
         :type l1: ListNode
         :type l2: ListNode
@@ -68,6 +68,18 @@ class Solution:
             ret.next = self.addTwoNumbers(l1.next,l2.next,c)
             print(ret)
         return ret
+
+# ----------------------------------------------------------
+# ----------------------------------------------------------
+# COMMUNICATION STEPS:
+
+# First, I set the two numbers to variables. Then, 
+# I get the modulo of those numbers and store it to ret (return)
+# Then, a test case to make sure that numbers are not None or 0 runs
+# in the form of if statements
+
+# ----------------------------------------------------------
+# ----------------------------------------------------------
 
 
 
